@@ -1,0 +1,42 @@
+<h3 class="text-light" style="background-color:black; margin-top: 2px; margin-bottom: 8px; text-align: center;"><b> Employee List </b></h3>
+<div class="first container"  *ngFor="let item of employee_list">    
+        <div class="container">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <img style="height: 90px; width: 90px; float: right;" [src]="item.photoURL" alt="Employee-Image">
+                </li>
+                <li class="list-group-item">
+                    <b> ID : </b>
+                    <span>{{item.id}}</span>
+                </li>
+                <li class="list-group-item">
+                    <b>Name : </b>
+                    <span>{{item.name}}</span>
+                </li>
+                <li class="list-group-item">
+                    <b>Salary : </b>
+                    <span>{{item.salary|currency:'INR'}}</span>
+                </li>
+                <li class="list-group-item">
+                    <b>Permanent : </b>
+                    <span>{{item.permanent}}</span>
+                </li>
+                <li class="list-group-item">
+                    <b>Department Id : </b>
+                    <span>{{item.department.id}}</span>
+                </li>
+                <li class="list-group-item">
+                    <b>Department Name : </b>
+                    <span>{{item.department.name}}</span>
+                </li>
+                <li class="list-group-item">
+                    <b>Date of Birth : </b>
+                    <span>{{item.dateOfBirth|date:'dd MMM yyyy'}}</span>
+                </li>
+                <li class="list-group-item">
+                    <b>Skills </b><br>
+                    <ul class="list-group"><li class="list-group-item" *ngFor="let sk of item.skill">{{sk.name}}</li></ul>
+                </li>
+            </ul>
+          </div>  
+</div>

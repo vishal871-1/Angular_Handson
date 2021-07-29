@@ -1,0 +1,26 @@
+.alert
+{
+    color: red;
+}
+
+.block {
+
+    float:left;
+    width: 40%;
+    
+    }
+    
+    .block1 {
+
+        float:right;
+        width: 25%;
+        border: sienna 2px dotted;
+        margin: 5px 5px 5px 5px;
+        }
+        .block2 {
+
+            float:right;
+            width: 25%;
+            border: 2px seagreen dotted;
+            margin: 5px 5px 5px 5px;
+            }

@@ -1,0 +1,55 @@
+<div class="block col-12" style="border: lightcoral 2px dotted; margin-top: 5px; margin-left: 5px;">
+    <h4 style="text-align: center;">Edit Employee</h4>
+    <br>
+    <form class="form-horizontal" #empForm="ngForm" (ngSubmit)="onSubmit(empForm)">
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="employee.Name"><strong>Name </strong></label>
+            <div class="col-sm-10">
+                <input class="form-control" required minlength="2" maxlength="10" ngModel name="Name" id="Name" #Name="ngModel" type="text">
+            </div>
+            <div class="alert" *ngIf="Name.touched && !Name.valid">
+                <div *ngIf="Name.errors?.required">Name is required</div>
+                <div *ngIf="Name.errors?.minlength">Name must be at least {{Name.errors?.minlength.requiredLength }} charecters long.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="employee.Salary"><strong>Salary</strong></label><br>
+            <div class="col-sm-10">
+                <input class="form-control" required ngModel name="Salary" id="Salary" #Salary="ngModel" type="number">
+            </div>
+            <div class="alert" *ngIf="Salary.touched && !Salary.valid">
+                <div *ngIf="Salary.errors?.required">Salary is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="employee.Department"><strong>Department</strong></label>
+            <div class="col-sm-10">
+                <select class="form-control" required ngModel name="Department" id="Department">
+                    <option *ngFor="let item of departments" [value]="item.id">{{ item.name }}</option>
+                </select>
+            </div>
+        </div>
+        <div>
+            <label  class="control-label col-sm-5"  for="employee.Permanent"> <b>Is Permanent or not?&nbsp; </b> <br></label>
+            <div class="col-sm-10">
+            <input  type="radio" required ngModel name="Permanent" #Permanent="ngModel" id="Yes" value="true" >&nbsp;Yes&nbsp;
+            <input  required ngModel name="Permanent" #Permanent="ngModel" id="No" value="false" type="radio">&nbsp;No&nbsp;    
+            </div>
+        </div>
+        <div class="col-md-12 text-center">
+            <button class="btn btn-lg btn-primary" type="submit" [disabled]="!empForm.valid">Save</button>
+        </div>
+        <br>
+    </form>
+</div>
+<div class="block1">
+    <h4 style="text-align: center;">Employee Model</h4><br>
+    <pre>{{employee | json }}</pre>
+</div>
+<div class="block2">
+    <h4 style="text-align: center;">Angular Generated Form Model</h4><br>
+    <pre>{{empForm.value | json}}</pre>
+</div>
+<!--
+    {{ firstName.control.errors.minlength.requiredLength }}
+-->

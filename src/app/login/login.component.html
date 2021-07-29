@@ -1,0 +1,25 @@
+<h1 style="background-color: lightcoral;  margin-top: 5px; text-align: center;" class="text-dark">Login Form</h1>
+<div class="content">
+
+    <header style="color: black;">Login Form</header>
+    <form #loginform="ngForm" (ngSubmit)="login(loginform.value)">
+        <div class="field">
+            <span class="fa fa-user"></span>
+            <label for="u_name"></label>
+            <input type="text" id="u_name" name="user_name" minlength="4" maxlength="20" [(ngModel)]="username" #user_name="ngModel"  required placeholder="Username">
+            <div class="error" style="color: red;" *ngIf="user_name.errors?.minlength">Username should be atleast 4 characters.</div>
+            <div class="error" style="color: red;" *ngIf="user_name.touched && user_name.invalid">Username is required.</div>
+        </div>
+        <div class="field space">
+            <span class="fa fa-lock"></span>
+            <label for="u_pswd"></label>
+            <input type="password" class="pass-key" id="u_pswd" name="pass_word" minlength="4" maxlength="20" [(ngModel)]="password" #pass_word="ngModel" required placeholder="Password">
+            <div class="error" style="color: red;" *ngIf="pass_word.errors?.minlength">Password should be atleast 4 characters.</div>
+            <div class="error" style="color: red;" *ngIf="pass_word.touched && pass_word.invalid">Password is required.</div>    
+        </div>
+        <div class="field space">
+            <input type="submit" [disabled]="loginform.invalid" value="LOGIN">
+            <div class="error" *ngIf="invalid">{{invalid}}</div>
+        </div>
+    </form>
+</div>

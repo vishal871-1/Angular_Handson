@@ -1,0 +1,13 @@
+<h4 style="margin-top: 5px;text-align: center; background-color:black;" class="text-light">Quality Increment works</h4>
+<button (click)="myFunc()" style="background-color: black; margin-left: 10px;color:whitesmoke;">Click Me</button>
+<div id="Clicked">{{ buttonClicked}}</div>
+<br><br>
+<input type="number" id="num" style="margin-left: 10px;margin-right: 10px; width: 60px;" [(ngModel)]="val" value="0">
+<button style="background-color: black;color: white; border: aquamarine; margin: 2px;" (click)="addition()">Add</button>
+
+<br><br>
+<div class="wrapper">
+<button (click)="substraction()" style="margin-left: 10px;margin-right: 10px; background-color: black; color: white;">-</button>
+<input type="number" id="num" style="width: 60px; margin: 4px;" [(ngModel)]="value" value="0">
+<button (click)="additionsymbol()" style="margin: 4px; background-color: black; color: white;">+</button>
+</div>
